@@ -14,12 +14,12 @@ I don't often write code (for fun, or at work these days) so it's good to challe
 
 ## How does it work?
 
-It's a brute force recursive algorithm using depth first search.
+It's a recursive depth-first backtracking algorithm.
 That is, it will try a move, see if that solved the puzzle, if not try another move, and so on recursively.
 If a dead end is reached (i.e. the puzzle is not solved but no further legal moves are possible) it will backtrack and try a different move.
 It remembers each position it has visited before (disregarding the order of the tubes themselves),
 and won't make a move that takes it back to a position it has already been in, to avoid going round in circles.
-There are a couple of other optimisations but otherwise it's pretty naive.
+There are a couple of other minor optimisations but otherwise it's pretty naive.
 
 ## How long does it take to run?
 
