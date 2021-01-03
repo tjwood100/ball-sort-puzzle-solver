@@ -84,7 +84,6 @@ def solveGrid(grid, tubeHeight=None, visitedPositions=set(), answer=[]):
     # that two grids that differ only by the order of the tubes are
     # considered as the same position
     visitedPositions.add(gridToCanonicalString(grid))
-    validMoves = False
     for i in range(len(grid)):
         tube = grid[i]
         for j in range(len(grid)):
@@ -98,13 +97,11 @@ def solveGrid(grid, tubeHeight=None, visitedPositions=set(), answer=[]):
                     answer.append(printGridToString(grid2))
                     return True
                 if(gridToCanonicalString(grid2) not in visitedPositions):
-                    validMoves = True
                     solved = solveGrid(grid2, tubeHeight, visitedPositions, answer)
                     if solved:
                         answer.append(printGridToString(grid2))
                         return True
-    if not validMoves:
-        return False
+    return False
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="(Attempt to) solve a ball sort puzzle")
